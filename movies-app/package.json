@@ -1,0 +1,26 @@
+{
+  "name": "movies-app",
+  "version": "1.0.0",
+  "description": "/ movie-app /",
+  "main": "index.js",
+  "scripts": {
+	"server-run": "cd server && npm install && nodemon index.js",
+	"server-open": "sleep 30 && start chrome http://localhost:3000",
+	"insomnia": "C:/Users/Korisnik/AppData/Local/insomnia/Insomnia.exe",
+	"server-config": "start npm run server-run && start npm run server-open && start npm run insomnia",
+	
+	"mongo-path": "cd C:/Program Files/MongoDB/Server/3.6/bin",
+	"mongod-exe": "npm run mongo-path && mongod.exe --dbpath C:/data",
+	"mongo-exe": "npm run mongo-path && mongo.exe",
+	"mongo-compass": "C:/\"Program Files\"/\"MongoDB Compass\"/MongoDBCompass.exe && sleep 10 && exit",
+	"mongo-wiz": "start npm run mongod-exe && sleep 10 && start npm run mongo-exe && start npm run mongo-compass",
+	
+	"client-run": "cd client && npm install && npm run start",
+	"client-config": "start npm run client-run",
+	
+	"wizard": "npm run server-config && npm run mongo-wiz && npm run client-config"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
