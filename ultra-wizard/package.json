@@ -1,0 +1,50 @@
+{
+  "name": "project-creator",
+  "version": "1.0.0",
+  "description": "Project creator for React",
+  "main": "index.js",
+  
+  "scripts": {
+  
+	"server-init": "mkdir server && cd server && npm init -y && touch index.js",
+	"server-mods": "cd server && npm install nodemon express cors mongoose --save",
+	"server-dirs": "cd server && mkdir controllers models routes views",
+	"server-stage-one": "npm run server-init && npm run server-mods && npm run server-dirs",
+	
+	"server-cp": "cp comps/server/index.js server && cp comps/server/view.html server/views && cp comps/server/db.js server",
+	"server-start": "cd server && code . && nodemon index.js",
+	"server-api": "C:/Users/Korisnik/AppData/Local/insomnia/Insomnia.exe",
+	"server-stage-two": "npm run server-cp && start npm run server-api && start npm run server-start",
+	
+	"server-wiz": "npm run server-stage-one && npm run server-stage-two",
+
+
+
+	"mongo-path": "cd \"C:/Program Files/MongoDB/Server/3.6/bin\"",
+	"mongod-exe": "npm run mongo-path && mongod.exe --dbpath C:/data",
+	"mongo-exe": "npm run mongo-path && sleep 30 && mongo.exe",
+	
+	"mongo-compass": "C:/\"Program Files\"/\"MongoDB Compass\"/MongoDBCompass.exe && sleep 10 && exit",
+	"mongo-wiz": "start npm run mongod-exe && sleep 10 && start npm run mongo-exe && start npm run mongo-compass",
+	
+
+
+	"client-mods": "cd client && npm install axios bootstrap styled-components react-table-6 react-router-dom --save",
+	"client-init": "npx create-react-app client && npm run client-mods",
+	
+	"client-dirs": "cd client && cd src && mkdir api components pages styles media && cd pages && mkdir parts && cd .. && cd media && mkdir img sfx misc", 
+	"client-files": "cd client && cd src && touch api/index.js pages/stylers.js",
+	"client-cleaner": "cd client && cd src && rm App.css App.test.js && cp index.css styles && rm index.css",
+	"client-organize": "npm run client-dirs && npm run client-files && npm run client-cleaner",
+	
+	"client-start": "cd client && code . && npm run start",
+	"self-destruct": "rm -r comps && rm package.json",
+	"client-wiz": "npm run client-init && npm run client-organize && npm run client-start && npm run self-destruct",
+
+	"ultra-wizard": "start npm run server-wiz && start npm run mongo-wiz && start npm run client-wiz"
+	
+  },
+  
+  "author": "Aleksandar Zupcic",
+  "license": "ISC"
+}
